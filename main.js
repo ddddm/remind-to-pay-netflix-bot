@@ -2,7 +2,6 @@
 var TelegramBot = require('node-telegram-bot-api'),
     Promise = require('bluebird'),
     _ = require('lodash'),
-    moment = require('moment-timezone'),
     CronJob = require('cron').CronJob,
     config    = require('./config.json'),
     bot = new TelegramBot(config.token, {polling: true}),
