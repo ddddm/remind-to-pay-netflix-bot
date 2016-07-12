@@ -9,6 +9,8 @@ var TelegramBot = require('node-telegram-bot-api'),
     firebase = require("firebase"),
     debug = require('debug')
 
+var exchangeRate = require('./exchangeRate')
+
 firebase.initializeApp({
     databaseURL: config.firebase.database,
     serviceAccount: config.firebase.key_file
@@ -19,30 +21,81 @@ var mainLog = debug('main');
 
 mainLog('starting');
 
-bot.onText(/\/start/, function (msg, match) {
+// Handle /start command
+
+bot.onText(/\/start/, function (msg) {
     var fromId = msg.chat.id;
     bot.sendMessage(fromId, 'start');
     var db = firebase.database();
     var chatsRef = db.ref("chats");
 
-    chatsRef.child(fromId.toString()).set(new Date().toString(), function(err) {
-        if(err) appError(err);
-        mainLog('successfly written')
-    })
+    chatsRef.child(fromId.toString()).set(new Date().toString())
 });
 
-bot.on('message', function (message) {
-    console.log(message.chat);
-})
+bot.onText(/\/payment/, function (msg) {
+    var fromId = msg.chat.id;
+
+    exchangeRate()
+        .then(function (rate) {
+            var paymentPerPerson = getPaymentShares(rate * config.payment_eur);
+
+            mainLog('answering about payment to chat', fromId, 'payment per person', paymentPerPerson);
+
+            bot.sendMessage(
+                fromId,
+                [
+                    'Если бы за Netflix платить пришлось сегодня, то по',
+                    paymentPerPerson,
+                    '₽',
+                    'с человека.'
+                ].join(' ')
+            );
+        });
+});
 
 
-/*
+// Schedule
+var cronReminderDate = parseInt(config.reminder_date);
+var reminderJob = new CronJob(
+    '00 3 15 ' + cronReminderDate + ' * *',
+    function() {
+        exchangeRate()
+            .then(function (rate) {
+                // create ref to chats node
+                // and get all the values
+                var db = firebase.database();
+                var chatsRef = db.ref("chats");
+                chatsRef.once(
+                    "value",
+                    function(snapshot) {
+                        var chats = snapshot.val();
+                        var paymentPerPerson = getPaymentShares(rate * config.payment_eur);
 
-1. get mdm bank exchange rate DONE
-2. store chats
-3. cron task to remind to all chats
-4. /start listener
-5.
+                        _.each(chats, function (chat, chatId) {
+                            mainLog('sending to chat', chatId, 'payment per person', paymentPerPerson);
+                            bot.sendMessage(
+                                chatId,
+                                [
+                                    'Пора платить за Netflix. По',
+                                    paymentPerPerson,
+                                    '₽',
+                                    'с человека.'
+                                ].join(' ')
+                            );
+                        })
+                }, function (errorObject) {
+                    appError("The read failed: " + errorObject.code);
+                });
+            });
 
+    },
+    null,
+    true /* Start the job right now */,
+    "Asia/Yekaterinburg"
+);
 
- */
+function getPaymentShares(payment) {
+    var people = config.people || 1;
+
+    return Math.round(payment / people);
+}
