@@ -24,7 +24,7 @@ mainLog('starting');
 
 bot.onText(/\/start/, function (msg) {
     var fromId = msg.chat.id;
-    bot.sendMessage(fromId, 'start');
+    bot.sendMessage(fromId, 'Я запомнил этот чат и буду слать в него напоминания.');
     var db = firebase.database();
     var chatsRef = db.ref("chats");
 
