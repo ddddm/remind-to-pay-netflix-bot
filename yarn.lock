@@ -2,6 +2,41 @@
 # yarn lockfile v1
 
 
+"@types/bluebird@*", "@types/bluebird@^3.5.19":
+  version "3.5.19"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.19.tgz#1a47308819ac2d1d6d1ca4f5d800ac84924100de"
+
+"@types/form-data@*":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-2.2.1.tgz#ee2b3b8eaa11c0938289953606b745b738c54b1e"
+  dependencies:
+    "@types/node" "*"
+
+"@types/node-telegram-bot-api@^0.28.2":
+  version "0.28.2"
+  resolved "https://registry.yarnpkg.com/@types/node-telegram-bot-api/-/node-telegram-bot-api-0.28.2.tgz#5debdb9f8021657b32aaa48b8deaf8472e449486"
+  dependencies:
+    "@types/node" "*"
+    "@types/request" "*"
+
+"@types/node@*":
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.2.tgz#83b8103fa9a2c2e83d78f701a9aa7c9539739aa5"
+
+"@types/request-promise@^4.1.39":
+  version "4.1.39"
+  resolved "https://registry.yarnpkg.com/@types/request-promise/-/request-promise-4.1.39.tgz#5c082bd20ae0a0caff83ba3a13e589ddacec5326"
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/request" "*"
+
+"@types/request@*", "@types/request@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.0.9.tgz#125b8a60d8a439e8d87e6d1335c61cccdc18343a"
+  dependencies:
+    "@types/form-data" "*"
+    "@types/node" "*"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -216,7 +251,7 @@ bluebird@^2.3:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
-bluebird@^3.3.4, bluebird@^3.4.1, bluebird@^3.5.0:
+bluebird@^3.3.4, bluebird@^3.5.0, bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1895,6 +1930,12 @@ repeat-string@^1.5.2:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
 
+request-promise-core@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.1.tgz#3eee00b2c5aa83239cfb04c5700da36f81cd08b6"
+  dependencies:
+    lodash "^4.13.1"
+
 request-promise@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-2.0.1.tgz#acbd47b725e39372ede3174cf29c38d9ecf2b30d"
@@ -1902,6 +1943,15 @@ request-promise@^2.0.1:
     bluebird "^2.3"
     lodash "^4.5.0"
     request "^2.34"
+
+request-promise@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-4.2.2.tgz#d1ea46d654a6ee4f8ee6a4fea1018c22911904b4"
+  dependencies:
+    bluebird "^3.5.0"
+    request-promise-core "1.1.1"
+    stealthy-require "^1.1.0"
+    tough-cookie ">=2.3.3"
 
 request@2.81.0:
   version "2.81.0"
@@ -1930,7 +1980,7 @@ request@2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-request@^2.34, request@^2.69.0, request@^2.73.0:
+request@^2.34, request@^2.69.0, request@^2.83.0:
   version "2.83.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
   dependencies:
@@ -2096,6 +2146,10 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
+stealthy-require@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
+
 stream-browserify@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
@@ -2218,7 +2272,7 @@ topo@1.x.x:
   dependencies:
     hoek "2.x.x"
 
-tough-cookie@~2.3.0, tough-cookie@~2.3.3:
+tough-cookie@>=2.3.3, tough-cookie@~2.3.0, tough-cookie@~2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.3.tgz#0b618a5565b6dea90bf3425d04d55edc475a7561"
   dependencies:
