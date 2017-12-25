@@ -36,7 +36,7 @@ bot.onText(/\/payment/, function (msg) {
 
     exchangeRate()
         .then(function (rate) {
-            var paymentPerPerson = getPaymentShares(rate * config.payment_eur);
+            var paymentPerPerson = getPaymentShares(rate * config.payment_in_euro);
 
             mainLog('answering about payment to chat', fromId, 'payment per person', paymentPerPerson);
 
@@ -68,7 +68,7 @@ var reminderJob = new CronJob(
                     "value",
                     function(snapshot) {
                         var chats = snapshot.val();
-                        var paymentPerPerson = getPaymentShares(rate * config.payment_eur);
+                        var paymentPerPerson = getPaymentShares(rate * config.payment_in_euro);
 
                         _.each(chats, function (chat, chatId) {
                             mainLog('sending to chat', chatId, 'payment per person', paymentPerPerson);
