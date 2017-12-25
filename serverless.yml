@@ -11,8 +11,8 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.telegramWebhookHandler
     events:
       - http:
-          method: get
-          path: hello
+          method: post
+          path: handleevent
