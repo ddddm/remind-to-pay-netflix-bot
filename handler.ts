@@ -21,7 +21,7 @@ export const telegramWebhookHandler = async (event, context, cb) => {
         [
           'Если бы за Netflix платить пришлось сегодня, то по',
           getPaymentShares(rate * config.payment_in_euro),
-          '₽',
+          "рублей",
           'с человека.'
         ].join(' ')
       );
