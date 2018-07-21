@@ -9,6 +9,10 @@ provider:
   name: aws
   runtime: nodejs6.10
 
+package:
+  exclude:
+    - .git/**
+
 functions:
   hello:
     handler: handler.telegramWebhookHandler
