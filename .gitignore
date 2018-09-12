@@ -1,5 +1,6 @@
 .idea/
 
-keys/
 node_modules/
+
+.webpack/
 config.json

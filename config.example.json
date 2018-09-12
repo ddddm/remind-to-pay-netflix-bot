@@ -1,10 +1,6 @@
 {
   "token": "string",
-  "firebase": {
-    "database": "https://url.firebaseio.com/",
-    "key_file": "./path/to/file.json"
-  },
   "people": 3,
-  "payment_eur": 11.99,
+  "payment_in_euro": 11.99,
   "reminder_date": 8
 }
