@@ -15,10 +15,10 @@
     "lodash": "^4.13.1",
     "request": "^2.83.0",
     "serverless": "^1.31.0",
-    "telegraf": "^3.17.2",
     "serverless-webpack": "^5.2.0",
+    "telegraf": "^3.17.2",
     "ts-loader": "^2.3.7",
-    "typescript": "^2.5.2",
+    "typescript": "^3.0.3",
     "webpack": "^3.6.0"
   }
 }
