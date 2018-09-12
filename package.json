@@ -1,6 +1,6 @@
 {
   "name": "remind-me-to-pa-for-netflix",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Netflix reminder bot",
   "main": "handler.js",
   "scripts": {
