@@ -5,6 +5,6 @@ const instance = new Polyglot({
     phrases: translations
 });
 
-export function t(key: string, values: Polyglot.InterpolationOptions) {
-    return instance.t(key, values);
+export function t(key: string, values?: Polyglot.InterpolationOptions) {
+    return instance.t(key, values || {} );
 }
