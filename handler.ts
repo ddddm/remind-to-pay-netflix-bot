@@ -1,4 +1,5 @@
 import { getBinBankExchangeRates, getPaymentShares } from './exchangeRate';
+import { t } from './translations';
 import * as Telegraf from 'telegraf';
 
 const config =  require("./config.json");
@@ -9,14 +10,8 @@ export const telegramWebhookHandler = async (event, context, cb) => {
 
   app.command('payment', async (ctx) => {
     const rate = await getBinBankExchangeRates();
-    ctx.reply(
-      [
-        'Если бы за Netflix платить пришлось сегодня, то по',
-        getPaymentShares(rate * config.payment_in_euro),
-        "рублей",
-        'с человека.'
-      ].join(' ')
-    );
+    const payment = getPaymentShares(rate * config.payment_in_euro);
+    ctx.reply(t('requested_payment_message', { payment }));
     cb(null, {
       statusCode: 200,
     });
