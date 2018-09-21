@@ -4,21 +4,28 @@
   "description": "Netflix reminder bot",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/bluebird": "^3.5.19",
+    "@types/node-polyglot": "^0.4.31",
     "@types/request": "^2.0.9",
     "bluebird": "^3.5.1",
     "lodash": "^4.13.1",
+    "node-polyglot": "^2.3.0",
     "request": "^2.83.0",
     "serverless": "^1.31.0",
-    "telegraf": "^3.17.2",
     "serverless-webpack": "^5.2.0",
+    "telegraf": "^3.17.2",
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.2",
     "webpack": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.1"
   }
 }
