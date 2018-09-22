@@ -16,12 +16,6 @@ export const telegramWebhookHandler = async (event, context, cb) => {
       statusCode: 200,
     });
   });
-  app.on('text', (ctx) => {
-    ctx.reply('Hello World');
-    cb(null, {
-      statusCode: 200,
-    });
-  })
 
   try {
     payload = JSON.parse(event.body);
@@ -30,8 +24,4 @@ export const telegramWebhookHandler = async (event, context, cb) => {
     console.error(error);
     return context.fail()
   }
-}
-
-export const reminder = (event, context, cb) => {
-  // this is called when need to remind about payment
 }
