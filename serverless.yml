@@ -20,3 +20,8 @@ functions:
       - http:
           method: post
           path: handleevent
+  reminder:
+    handler: reminder.reminder
+    events:
+        - schedule:
+            rate: rate(1 minute)
