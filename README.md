@@ -6,5 +6,5 @@ Sharing a family Netflix subscription with your friends? This bot will remind yo
 
 ### Serverless Telegram bot
 
-- [ ]`/start` command activates the bot, remembering the chat where it will send reminders
-- [x]`/payment` command calculates the inidividual payment
+- [ ] `/start` command activates the bot, remembering the chat where it will send reminders
+- [x] `/payment` command calculates the inidividual payment
