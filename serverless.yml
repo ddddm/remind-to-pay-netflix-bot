@@ -16,6 +16,9 @@ package:
 functions:
   hello:
     handler: handler.telegramWebhookHandler
+    environment:
+      MONGODB_DB_NAME: default
+      MONGODB_COLLECTION_NAME: netflixBotChats
     events:
       - http:
           method: post
