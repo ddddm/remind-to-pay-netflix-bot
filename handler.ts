@@ -17,6 +17,11 @@ export const telegramWebhookHandler = async (event, context, cb) => {
     });
   });
 
+  app.command('start', async ctx => {
+    ctx.reply(t('bot_started_successfuly'))
+    cb(null, { statusCode: 200 })
+  })
+
   try {
     payload = JSON.parse(event.body);
     app.handleUpdate(payload);
