@@ -1,16 +1,21 @@
-import * as mongoose from 'mongoose';
+const config =  require("./config.json");
+export interface ChatShape {
+    chatId: number;
+    createdAt: Date;
+    numberOfPayers: number;
+}
+export class Chat implements ChatShape {
+    constructor(
+        public chatId: number,
+        public createdAt: Date,
+        public numberOfPayers: number,
+    ) {}
 
-const chatSchema = new mongoose.Schema({
-    chatId: {
-        type: String,
-        required: true
-    },
-    numberOfPayers: {
-        type: Number,
-        required: false,
-    },
-}, {
-    timestamps: true
-})
-
-export const ChatModel = mongoose.model('Chat', chatSchema);
+    static createFromChatId(chatId: number) {
+        return new Chat(
+            chatId,
+            new Date(),
+            (config.people as number)
+        )
+    }
+}
