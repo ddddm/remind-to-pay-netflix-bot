@@ -1,6 +1,8 @@
+import * as Telegraf from 'telegraf';
 import { getBinBankExchangeRates, getPaymentShares } from './exchangeRate';
 import { t } from './translations';
-import * as Telegraf from 'telegraf';
+import { set as setChatInfo } from './storage';
+import { Chat } from './models/chat';
 
 const config =  require("./config.json");
 
@@ -18,7 +20,9 @@ export const telegramWebhookHandler = async (event, context, cb) => {
   });
 
   app.command('start', async ctx => {
+    const { id: chatId } = ctx.chat;
     ctx.reply(t('bot_started_successfuly'))
+    await setChatInfo(Chat.createFromChatId(chatId))
     cb(null, { statusCode: 200 })
   })
 
