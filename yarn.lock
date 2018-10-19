@@ -36,6 +36,12 @@
   version "3.5.19"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.19.tgz#1a47308819ac2d1d6d1ca4f5d800ac84924100de"
 
+"@types/bson@*":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@types/bson/-/bson-1.0.11.tgz#c95ad69bb0b3f5c33b4bb6cc86d86cafb273335c"
+  dependencies:
+    "@types/node" "*"
+
 "@types/form-data@*":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-2.2.1.tgz#ee2b3b8eaa11c0938289953606b745b738c54b1e"
@@ -45,6 +51,13 @@
 "@types/jest@^23.3.2":
   version "23.3.2"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.2.tgz#07b90f6adf75d42c34230c026a2529e56c249dbb"
+
+"@types/mongodb@^3.1.12":
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.1.12.tgz#673cd6d8f494cf03860f15525c653302e109e0f9"
+  dependencies:
+    "@types/bson" "*"
+    "@types/node" "*"
 
 "@types/node-polyglot@^0.4.31":
   version "0.4.31"
