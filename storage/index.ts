@@ -17,7 +17,9 @@ export async function init() {
     assert(connectionString, 'Mongo connection string should be specified');
 
     try {
-        const client = await connect(connectionString as string);
+        const client = await connect(connectionString as string, {
+            useNewUrlParser: true,
+        });
         return collection =  client.db(dbName).collection<ChatShape>(collectionName as string)
     } catch (error) {
         throw error;
