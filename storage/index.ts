@@ -28,7 +28,7 @@ export async function init() {
 
 export async function set(data: ChatShape) {
     const collection = await init();
-    collection.insertOne(data)
+    return collection.insertOne(data)
 }
 
 export async function get(chatId: number) {
