@@ -1,4 +1,3 @@
-const config =  require("./config.json");
 export interface ChatShape {
     chatId: number;
     createdAt: Date;
@@ -11,11 +10,11 @@ export class Chat implements ChatShape {
         public numberOfPayers: number,
     ) {}
 
-    static createFromChatId(chatId: number) {
+    static createFromChatId(chatId: number, people: number) {
         return new Chat(
             chatId,
             new Date(),
-            (config.people as number)
+            people,
         )
     }
 }
