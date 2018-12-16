@@ -2,9 +2,9 @@ import { connect, Collection } from 'mongodb';
 import { ChatShape } from '../models/chat';
 import * as assert from 'assert';
 
-const dbName = process.env.MONGODB_DB_NAME;
-const collectionName = process.env.MONGODB_COLLECTION_NAME;
-const connectionString = process.env.MONGODB_CONNECTION_STRING;
+const dbName = process.env.DOCUMENT_STORAGE_DB_NAME;
+const collectionName = process.env.DOCUMENT_STORAGE_COLLECTION_NAME;
+const connectionString = process.env.DOCUMENT_STORAGE_CONNECTION_STRING;
 let collection: Collection<ChatShape>;
 
 export async function init() {
