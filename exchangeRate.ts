@@ -11,6 +11,7 @@ export function getBinBankExchangeRates(): Promise<number> {
                 method:'GET'
             },
             function (err, res, responseString) {
+                if(err) return reject(err);
                 const respone = JSON.parse(responseString);
                 resolve(respone.rates.RUB / respone.rates.EUR);
             })
