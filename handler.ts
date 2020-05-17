@@ -7,6 +7,7 @@ import {
   get as getChatInfo,
 } from './storage';
 import { Chat } from './models/chat';
+import { success, failure } from './respondToGatewayAPI'
 
 const {
   token,
@@ -32,11 +33,9 @@ const startCommandHandler = () => async ctx => {
 
   await setChatInfo(chat);
   console.log(`[command=start] Chat ${chatId} stored`);
-
 }
 
-export const telegramWebhookHandler = async (event, context) => {
-  context.callbackWaitsForEmptyEventLoop = false;
+export const telegramWebhookHandler = async event => {
   const app = new Telegraf(token);
   const startCmd = startCommandHandler();
 
@@ -49,10 +48,6 @@ export const telegramWebhookHandler = async (event, context) => {
   app.command('start', startCmd)
 
   const payload = JSON.parse(event.body);
-  console.log({
-    type: 'payload',
-    payload: JSON.stringify(payload, null, 2),
-  })
   await app.handleUpdate(payload);
-  return 'OK'
+  return success('OK');
 }
