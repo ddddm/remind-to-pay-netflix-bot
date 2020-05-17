@@ -24,6 +24,7 @@ const startCommandHandler = () => async ctx => {
   if(existingChat) {
     console.log(`[command=start] Chat ${chatId} found in DB: ${JSON.stringify(existingChat, null, 2)}`);
     await ctx.reply(t('bot_started_chat_existed'));
+    return;
   }
   
   console.log(`[command=start] Chat ${chatId} created: ${JSON.stringify(chat, null, 2)}`);
@@ -47,7 +48,7 @@ export const telegramWebhookHandler = async (event, context) => {
 
   app.command('payment', async (ctx) => {
       const rate = await getBinBankExchangeRates();
-      const payment = getPaymentShares();
+      const payment = getPaymentShares() * rate;
       await ctx.reply(t('requested_payment_message', { payment }));
   });
 
@@ -59,7 +60,6 @@ export const telegramWebhookHandler = async (event, context) => {
     return {
       payload,
     }
-
   } catch (error) {
     throw error;
   }
