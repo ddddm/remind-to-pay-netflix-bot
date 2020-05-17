@@ -40,12 +40,6 @@ export const telegramWebhookHandler = async (event, context) => {
   const app = new Telegraf(token);
   const startCmd = startCommandHandler();
 
-  app.catch(error => {
-    console.error(`Bot failed to handle the message with error`);
-    console.error(error);
-    throw error;
-  })
-
   app.command('payment', async (ctx) => {
       const rate = await getBinBankExchangeRates();
       const payment = getPaymentShares() * rate;
@@ -54,13 +48,13 @@ export const telegramWebhookHandler = async (event, context) => {
 
   app.command('start', startCmd)
 
-  try {
-    const payload = JSON.parse(event.body);
-    await app.handleUpdate(payload);
-    return {
-      payload,
-    }
-  } catch (error) {
-    throw error;
+  const payload = JSON.parse(event.body);
+  console.log({
+    type: 'payload',
+    payload,
+  })
+  await app.handleUpdate(payload);
+  return {
+    payload,
   }
 }
