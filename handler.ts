@@ -1,4 +1,5 @@
 import * as Telegraf from 'telegraf';
+import configuration from './configuration';
 import { getBinBankExchangeRates, getPaymentShares } from './exchangeRate';
 import { t } from './translations';
 import {
@@ -7,13 +8,16 @@ import {
 } from './storage';
 import { Chat } from './models/chat';
 
-const config =  require("./config.json");
+const {
+  token,
+  numberOfPeople,
+} = configuration.get();
 
 const startCommandHandler = callback => async ctx => {
   const { id: chatId } = ctx.chat;
   const chat = Chat.createFromChatId(
     chatId,
-    (config.people as number)
+    numberOfPeople,
   );
   const existingChat = await getChatInfo(chat.chatId);
 
@@ -34,7 +38,7 @@ const startCommandHandler = callback => async ctx => {
 
 export const telegramWebhookHandler = async (event, context, cb) => {
   context.callbackWaitsForEmptyEventLoop = false;
-  const app = new Telegraf(config.token);
+  const app = new Telegraf(token);
   const startCmd = startCommandHandler(cb);
 
   app.catch(error => {

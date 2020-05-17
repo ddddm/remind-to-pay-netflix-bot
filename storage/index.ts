@@ -1,26 +1,25 @@
 import { connect, Collection } from 'mongodb';
-import { ChatShape } from '../models/chat';
 import * as assert from 'assert';
+import { ChatShape } from '../models/chat';
+import configuration from '../configuration';
 
-const dbName = process.env.DOCUMENT_STORAGE_DB_NAME;
-const collectionName = process.env.DOCUMENT_STORAGE_COLLECTION_NAME;
-const connectionString = process.env.DOCUMENT_STORAGE_CONNECTION_STRING;
+const {
+    dbName,
+    collectionName,
+    connectionString,
+} = configuration.get();
 let collection: Collection<ChatShape>;
 
 export async function init() {
     if(collection) {
         return collection;
     }
-    
-    assert(dbName, 'Mongo DB name should be specified');
-    assert(collectionName, 'Mongo collection name should be specified');
-    assert(connectionString, 'Mongo connection string should be specified');
 
     try {
-        const client = await connect(connectionString as string, {
+        const client = await connect(connectionString, {
             useNewUrlParser: true,
         });
-        return collection =  client.db(dbName).collection<ChatShape>(collectionName as string)
+        return collection =  client.db(dbName).collection<ChatShape>(collectionName)
     } catch (error) {
         throw error;
     }

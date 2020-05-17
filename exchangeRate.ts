@@ -1,6 +1,10 @@
 import * as request from "request";
 import * as Promise from "bluebird";
-const config =  require("./config.json");
+import configuration from './configuration';
+
+const {
+    numberOfPeople,
+} = configuration.get();
 const appId = 'e2cf12a023434cebbb340acda92c6b8b';
 
 export function getBinBankExchangeRates(): Promise<number> {
@@ -12,14 +16,13 @@ export function getBinBankExchangeRates(): Promise<number> {
             },
             function (err, res, responseString) {
                 if(err) return reject(err);
-                const respone = JSON.parse(responseString);
-                resolve(respone.rates.RUB / respone.rates.EUR);
+                const response = JSON.parse(responseString);
+                resolve(response.rates.RUB / response.rates.EUR);
             })
     })
 
 }
 
 export function getPaymentShares(payment) {
-    const people = config.people || 1;
-    return Math.round(payment / people);
+    return Math.round(payment / numberOfPeople);
 }

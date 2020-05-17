@@ -11,7 +11,10 @@ provider:
   environment:
     DOCUMENT_STORAGE_DB_NAME: default
     DOCUMENT_STORAGE_COLLECTION_NAME: netflixBotChats
-    DOCUMENT_STORAGE_CONNECTION_STRING: ${ssm:netflixBotdocumentStorageConnectionString}
+    DOCUMENT_STORAGE_CONNECTION_STRING: ${ssm:/netflixBot/netflixBotdocumentStorageConnectionString}
+    TELEGRAM_BOT_TOKEN: ${ssm:/netflixBot/telegramBotToken}
+    DEFAULT_NUMBER_OF_PEOPLE: 3
+    PAYMENT_IN_EURO: 11.99
 
 package:
   exclude:
