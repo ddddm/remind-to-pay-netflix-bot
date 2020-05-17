@@ -4,6 +4,7 @@ import configuration from './configuration';
 
 const {
     numberOfPeople,
+    payment,
 } = configuration.get();
 const appId = 'e2cf12a023434cebbb340acda92c6b8b';
 
@@ -23,6 +24,6 @@ export function getBinBankExchangeRates(): Promise<number> {
 
 }
 
-export function getPaymentShares(payment) {
+export function getPaymentShares() {
     return Math.round(payment / numberOfPeople);
 }

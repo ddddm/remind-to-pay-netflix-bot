@@ -49,7 +49,7 @@ export const telegramWebhookHandler = async (event, context, cb) => {
   app.command('payment', async (ctx) => {
     try {
       const rate = await getBinBankExchangeRates();
-      const payment = getPaymentShares(rate * config.payment_in_euro);
+      const payment = getPaymentShares();
       await ctx.reply(t('requested_payment_message', { payment }));
       cb(null, {
         statusCode: 200,
