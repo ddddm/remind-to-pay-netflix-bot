@@ -7,10 +7,12 @@ cache:
 
 jobs:
   include:
-    - stage: stage-testing
-      script: echo "Testing stage"
     - stage: deploy
       before_script:
         - npm install -g serverless
-      script: serverless deploy
-      if: branch = master
+      script: skip
+      deploy:
+        - provider: script
+          script: serverless deploy
+          on:
+            branch: master
