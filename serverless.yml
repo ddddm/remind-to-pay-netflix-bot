@@ -9,7 +9,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   logs:
-    httpApi: true
+    restApi: true
   environment:
     DOCUMENT_STORAGE_DB_NAME: default
     DOCUMENT_STORAGE_COLLECTION_NAME: netflixBotChats
