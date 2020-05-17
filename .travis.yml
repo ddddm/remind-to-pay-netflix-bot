@@ -5,8 +5,14 @@ cache:
   directories:
     - "node_modules"
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
 jobs:
   include:
+    - stage: test
+      script: yarn test
     - stage: deploy
       before_script:
         - npm install -g serverless
@@ -14,5 +20,3 @@ jobs:
       deploy:
         - provider: script
           script: serverless deploy
-          on:
-            branch: master
