@@ -51,10 +51,8 @@ export const telegramWebhookHandler = async (event, context) => {
   const payload = JSON.parse(event.body);
   console.log({
     type: 'payload',
-    payload,
+    payload: JSON.stringify(payload, null, 2),
   })
   await app.handleUpdate(payload);
-  return {
-    payload,
-  }
+  return 'OK'
 }
