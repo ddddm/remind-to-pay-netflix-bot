@@ -1,13 +1,13 @@
 import * as Telegraf from 'telegraf';
-import configuration from './configuration';
-import { getBinBankExchangeRates, getPaymentShares } from './exchangeRate';
-import { t } from './translations';
+import configuration from '../configuration';
+import { getBinBankExchangeRates, getPaymentShares } from '../exchangeRate';
+import { t } from '../translations';
 import {
   set as setChatInfo,
   get as getChatInfo,
-} from './storage';
-import { Chat } from './models/chat';
-import { success, failure } from './respondToGatewayAPI'
+} from '../storage';
+import { Chat } from '../models/chat';
+import { success, failure } from '../respondToGatewayAPI'
 
 const {
   token,

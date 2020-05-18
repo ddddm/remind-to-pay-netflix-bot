@@ -24,10 +24,10 @@ package:
 
 functions:
   hello:
-    handler: handler.telegramWebhookHandler
+    handler: src/functions/telegram-updates.telegramWebhookHandler
     events:
       - http:
           method: post
           path: handleevent
   reminder:
-    handler: reminder.reminder
+    handler: src/functions/reminder.reminder
