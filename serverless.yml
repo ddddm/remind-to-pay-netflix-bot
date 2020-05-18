@@ -5,6 +5,10 @@ service:
 plugins:
   - serverless-webpack
 
+custom:
+  webpack:
+    includeModules: true
+
 provider:
   name: aws
   runtime: nodejs12.x
