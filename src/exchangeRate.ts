@@ -1,5 +1,4 @@
 import * as request from "request";
-import * as Promise from "bluebird";
 import configuration from './configuration';
 
 const {
