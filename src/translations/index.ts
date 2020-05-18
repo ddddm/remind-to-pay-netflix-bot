@@ -1,4 +1,4 @@
-import * as Polyglot from 'node-polyglot';
+import Polyglot = require('node-polyglot');
 import translations from './ru';
 
 const instance = new Polyglot({

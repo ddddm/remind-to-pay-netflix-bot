@@ -2,12 +2,11 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "es2017",
-    "moduleResolution": "Node",
     "sourceMap": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": false,
     "lib": [
       "es2017",
-    ],
+    ]
   } 
 }
