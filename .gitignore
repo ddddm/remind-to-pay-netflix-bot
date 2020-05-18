@@ -1,9 +1,10 @@
-.idea/
-
 node_modules/
 
 .webpack/
-config.json
+dist/
 
 # Serverless directories
 .serverless
+
+# TODO list from the plugin 
+TODO
