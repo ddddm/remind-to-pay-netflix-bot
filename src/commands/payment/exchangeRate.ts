@@ -7,6 +7,10 @@ const {
 } = configuration.get();
 const appId = 'e2cf12a023434cebbb340acda92c6b8b';
 
+export enum UserCurrency {
+    RUB = 'RUB',
+}
+
 export function getBinBankExchangeRates(): Promise<number> {
     return new Promise(function(resolve, reject) {
         request(
