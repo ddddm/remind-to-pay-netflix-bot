@@ -15,6 +15,7 @@ provider:
   logs:
     restApi: true
   environment:
+    NODE_ENV: production
     DOCUMENT_STORAGE_DB_NAME: default
     DOCUMENT_STORAGE_COLLECTION_NAME: netflixBotChats
     DOCUMENT_STORAGE_CONNECTION_STRING: ${ssm:/netflixBot/netflixBotdocumentStorageConnectionString}
