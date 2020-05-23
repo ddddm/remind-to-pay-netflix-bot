@@ -6,6 +6,7 @@ cache: yarn
 
 deploy:
   provider: script
+  edge: true
   script: serverless deploy
   cleanup: true
   on:
