@@ -7889,6 +7889,13 @@ tar-stream@^2.1.0:
     inherits "^2.0.3"
     readable-stream "^3.1.1"
 
+telegraf-update-logger@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/telegraf-update-logger/-/telegraf-update-logger-1.1.7.tgz#3284968cdaf1ed4bc8a6073da24d1e8dc59bf781"
+  integrity sha512-L3BjvI4XYHMvu3fpKJbKtgctfywymRRNZPa6JfxlL58em7n+qF2yqgQgHes02rcPtYFLiHcw4vTQ+jc6jmyLFg==
+  dependencies:
+    chalk "^2.4.2"
+
 telegraf@^3.17.2:
   version "3.17.2"
   resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.17.2.tgz#380f2ebcd11202d68a6b7675f491df30162af614"
