@@ -1,4 +1,6 @@
 import * as Telegraf from 'telegraf';
+import updateLogger from 'telegraf-update-logger';
+
 import configuration from '../configuration';
 import { getBinBankExchangeRates, getPaymentShares } from '../exchangeRate';
 import { t } from '../translations';
@@ -32,20 +34,21 @@ const startCommandHandler = () => async ctx => {
   await ctx.reply(t('bot_started_successfuly'))
 
   await setChatInfo(chat);
-  console.log(`[command=start] Chat ${chatId} stored`);
 }
 
 export const telegramWebhookHandler = async event => {
   const app = new Telegraf(token);
   const startCmd = startCommandHandler();
 
+  app.use(updateLogger({ colors: true }));
+
   app.command('payment', async (ctx) => {
       const rate = await getBinBankExchangeRates();
       const payment = getPaymentShares() * rate;
       await ctx.reply(t('requested_payment_message', { payment }));
   });
-
   app.command('start', startCmd)
+  app.command('debug', ctx => ctx.reply(updateLogger.format(ctx.update)))
 
   const payload = JSON.parse(event.body);
   await app.handleUpdate(payload);
