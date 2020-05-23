@@ -1,5 +1,5 @@
 import * as request from "request";
-import configuration from './configuration';
+import configuration from '../../configuration';
 
 const {
     numberOfPeople,
