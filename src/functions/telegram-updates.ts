@@ -1,5 +1,5 @@
-import * as Telegraf from 'telegraf';
-import updateLogger from 'telegraf-update-logger';
+import { Telegraf } from 'telegraf';
+import * as updateLogger from 'telegraf-update-logger';
 
 import configuration from '../configuration';
 import { getBinBankExchangeRates, getPaymentShares } from '../exchangeRate';
