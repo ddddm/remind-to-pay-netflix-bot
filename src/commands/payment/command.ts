@@ -4,6 +4,6 @@ import { t } from '../../translations';
 import { getIndividualPayment } from './individualPayment';
 
 export default async (ctx: Context) => {
-    const payment = getIndividualPayment(UserCurrency.RUB);
+    const payment = await getIndividualPayment(UserCurrency.RUB);
     await ctx.reply(t('requested_payment_message', { payment }));
 }
