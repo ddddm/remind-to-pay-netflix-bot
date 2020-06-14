@@ -4,15 +4,15 @@ import configuration from '../../configuration';
 const {
     numberOfPeople,
     payment,
+    currencyRatesToken,
 } = configuration.get();
-const appId = 'e2cf12a023434cebbb340acda92c6b8b';
 
 export enum UserCurrency {
     RUB = 'RUB',
 }
 
 export async function getExchangeRate(currency: UserCurrency): Promise<number> {
-    const response = await fetch(`https://openexchangerates.org/api/latest.json?app_id=${appId}`)
+    const response = await fetch(`https://openexchangerates.org/api/latest.json?app_id=${currencyRatesToken}`)
     const { rates } = await response.json();
 
     if(!rates[currency]) { throw new Error('Currency is not supported')};

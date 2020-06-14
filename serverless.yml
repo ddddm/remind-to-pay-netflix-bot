@@ -20,6 +20,7 @@ provider:
     DOCUMENT_STORAGE_COLLECTION_NAME: netflixBotChats
     DOCUMENT_STORAGE_CONNECTION_STRING: ${ssm:/netflixBot/netflixBotdocumentStorageConnectionString}
     TELEGRAM_BOT_TOKEN: ${ssm:/netflixBot/telegramBotToken}
+    OPENEXCHANGERATES_TOKEN: ${ssm:/netflixBot/openexchangeratesOrgToken}
     DEFAULT_NUMBER_OF_PEOPLE: 3
     PAYMENT_IN_EURO: 11.99
 
