@@ -6,7 +6,7 @@ cache: yarn
 
 deploy:
   provider: script
-  edge: true
   script: serverless deploy
+  skip_cleanup: true
   on:
     branch: master
