@@ -14,6 +14,7 @@ You'll need
 In AWS SSM, the following keys should exist in the [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html):
 - `/netflixBot/netflixBotdocumentStorageConnectionString`
 - `/netflixBot/telegramBotToken`
+- `/netflixBot/openexchangeratesOrgToken`
 They are passed to the app as environment variables in `serverless.yml` config.
 
 A bot is deployed on AWS Lambda via `serverless` framework. In order to use it, [AWS credentials](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/) are required.
