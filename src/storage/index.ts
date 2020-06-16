@@ -35,3 +35,9 @@ export async function get(chatId: number) {
     const chat = await collection.findOne({ chatId, })
     return chat;
 }
+
+export async function getAll() {
+    const collection = await init();
+    const cursor = await collection.find()
+    return cursor;
+}
