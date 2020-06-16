@@ -3,17 +3,16 @@ import { getExchangeRate } from './exchangeRate';
 import { UserCurrency, roundPaymentForCurrency } from "./currency";
 
 const {
-    numberOfPeople,
     payment,
 } = configuration.get();
 
-export function getPaymentShare() {
+export function getPaymentShare(numberOfPeople) {
     return payment / numberOfPeople;
 }
 
-export async function getIndividualPayment(currency: UserCurrency) {
+export async function getIndividualPayment(currency: UserCurrency, numberOfPeople: number) {
     const exchangeRate = await getExchangeRate(currency);
-    const share = getPaymentShare();
+    const share = getPaymentShare(numberOfPeople);
     const payment = exchangeRate * share;
     return roundPaymentForCurrency(currency, payment)
     
