@@ -1,4 +1,4 @@
-import configuration from '../../configuration';
+import configuration from '../configuration';
 import { getExchangeRate } from './exchangeRate';
 import { UserCurrency, roundPaymentForCurrency } from "./currency";
 

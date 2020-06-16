@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import configuration from '../../configuration';
+import configuration from '../configuration';
 import { UserCurrency } from './currency';
 
 const {

@@ -1,7 +1,7 @@
 import { Context } from 'telegraf';
-import { UserCurrency } from "./currency";
+import { UserCurrency } from "../../utils/currency";
 import { t } from '../../translations';
-import { getIndividualPayment } from './individualPayment';
+import { getIndividualPayment } from '../../utils/individualPayment';
 import configuration from '../../configuration';
 
 const {

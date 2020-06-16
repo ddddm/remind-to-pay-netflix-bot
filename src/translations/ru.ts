@@ -1,5 +1,6 @@
 const translations = {
     requested_payment_message: `Если бы за Netflix платить пришлось сегодня, то по %{payment} рублей с человека.`,
+    payment_message: `Пора платить за Netflix – по %{payment} рублей с человека.`,
     bot_started_successfuly: 'Запомнил этот чат и буду посылать сюда напоминания оплатить Netflix',
     bot_started_chat_existed: 'Уже посылаю в этот чат напоминания',
     test: 'Тест',
