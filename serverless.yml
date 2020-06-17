@@ -37,3 +37,7 @@ functions:
           path: handleevent
   reminder:
     handler: src/functions/reminder.reminder
+    events:
+      - schedule:
+          rate: rate(10 minutes)
+          enabled: ${strToBool(${ssm:/netflixBot/reminderEnabled})}
